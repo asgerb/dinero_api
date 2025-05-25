@@ -1,0 +1,34 @@
+PATH
+  remote: .
+  specs:
+    dinero_ruby (0.1.0)
+      faraday (~> 2.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dotenv (3.1.8)
+    faraday (2.13.1)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
+    json (2.12.2)
+    logger (1.7.0)
+    net-http (0.6.0)
+      uri
+    rake (13.2.1)
+    uri (1.0.3)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+
+DEPENDENCIES
+  dinero_ruby!
+  dotenv
+  rake (~> 13.0)
+
+BUNDLED WITH
+   2.5.20
