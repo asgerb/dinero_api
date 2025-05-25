@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    dinero_ruby (0.1.0)
+    dinero_api (0.1.0)
       faraday (~> 2.0)
+      zeitwerk
 
 GEM
   remote: https://rubygems.org/
@@ -16,18 +17,21 @@ GEM
       net-http (>= 0.5.0)
     json (2.12.2)
     logger (1.7.0)
+    minitest (5.25.5)
     net-http (0.6.0)
       uri
     rake (13.2.1)
     uri (1.0.3)
+    zeitwerk (2.7.3)
 
 PLATFORMS
   arm64-darwin-23
   ruby
 
 DEPENDENCIES
-  dinero_ruby!
+  dinero_api!
   dotenv
+  minitest (~> 5.0)
   rake (~> 13.0)
 
 BUNDLED WITH

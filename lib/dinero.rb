@@ -1,8 +1,5 @@
-# frozen_string_literal: true
-
 require_relative "dinero/version"
 
-module Dinero
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem
+loader.setup
