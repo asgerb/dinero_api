@@ -1,3 +1,6 @@
+require "faraday"
+require "base64"
+
 module Dinero
   class Authentication
     class << self
@@ -30,15 +33,13 @@ module Dinero
         end
 
         if response.success?
-          Rails.cache.fetch("#{client_id}/dinero_access_token", expires_in: 1.hour) do
-            AccessToken.new(
-              token: response.body["access_token"],
-              expires_in: response.body["expires_in"],
-              type: response.body["token_type"]
-            )
-          end
+          AccessToken.new(
+            token: response.body["access_token"],
+            expires_in: response.body["expires_in"],
+            type: response.body["token_type"]
+          )
         else
-          raise AuthenticationError, "Authentication failed: #{response.status} #{response.reason_phrase}"
+          raise Errors::AuthenticationFailed.new(response: response)
         end
       end
     end
