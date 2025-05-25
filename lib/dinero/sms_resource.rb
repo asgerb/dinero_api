@@ -1,5 +1,5 @@
 module Dinero
-  class SMSResource < Resource
+  class SmsResource < Resource
     def validate(**params)
       response = post("v1/#{organization_id}/sms/validate", params: params)
       response.body
