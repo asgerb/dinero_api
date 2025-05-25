@@ -19,5 +19,9 @@ module Dinero
       response = get("v1/#{organization_id}/vouchers/#{guid}", headers: {"Accept" => "application/octet-stream"})
       response.body
     end
+
+    def purchase
+      Dinero::PurchaseVouchersResource.new(self)
+    end
   end
 end
