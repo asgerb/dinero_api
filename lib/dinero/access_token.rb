@@ -8,12 +8,10 @@ module Dinero
       @type = type
     end
 
-    def expires_at
-      Time.now.to_i + expires_in
-    end
+    def expires_at = Time.now.to_i + expires_in
 
-    def to_s
-      token
-    end
+    def expired? = Time.now.to_i > expires_at
+
+    def to_s = token
   end
 end

@@ -7,7 +7,7 @@ module Dinero
     attr_reader :organization_id
 
     def initialize(organization_id:, api_key:, client_id:, client_secret:, adapter: Faraday.default_adapter)
-      @access_token = Dinero::Authentication.access_token(api_key: api_key, client_id: client_id, client_secret: client_secret)
+      @access_token = Dinero::Authentication.access_token(api_key:, client_id:, client_secret:)
       @adapter = adapter
       @organization_id = organization_id
     end
