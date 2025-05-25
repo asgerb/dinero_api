@@ -26,26 +26,61 @@ module Dinero
       Dinero::OrganizationsResource.new(self)
     end
 
-    def entry_accounts
-      Dinero::EntryAccountsResource.new(self)
-    end
-
-    def purchase_accounts
-      Dinero::PurchaseAccountsResource.new(self)
-    end
-
-    def deposit_accounts
-      Dinero::DepositAccountsResource.new(self)
+    def accounts
+      Dinero::AccountsResource.new(self)
     end
 
     def sales_credit_notes
       Dinero::SalesCreditNotesResource.new(self)
     end
 
-    # https://api.dinero.dk/v1/${orgid}/accounts/deposit?fields=bankAccountNumber,bankRegistrationNumber,bankSwiftNumber,bankIbanNumber,name
-    # def accounts
-    #   Dinero::AccountsResource.new(self)
-    # end
+    def business_goals
+      Dinero::BusinessGoalsResource.new(self)
+    end
+
+    def state_of_account
+      Dinero::StateOfAccountResource.new(self)
+    end
+
+    def entries
+      Dinero::EntriesResource.new(self)
+    end
+
+    def files
+      Dinero::FilesResource.new(self)
+    end
+
+    def integrations
+      Dinero::IntegrationsResource.new(self)
+    end
+
+    def ledger_items
+      Dinero::LedgerItemsResource.new(self)
+    end
+
+    def products
+      Dinero::ProductsResource.new(self)
+    end
+
+    def purchase_vouchers
+      Dinero::PurchaseVouchersResource.new(self)
+    end
+
+    def reports
+      Dinero::ReportsResource.new(self)
+    end
+
+    def sms
+      Dinero::SMSResource.new(self)
+    end
+
+    def vat_types
+      Dinero::VATTypesResource.new(self)
+    end
+
+    def voucher_templates
+      Dinero::VoucherTemplatesResource.new(self)
+    end
 
     def connection
       @connection ||= Faraday.new do |conn|

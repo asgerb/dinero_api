@@ -8,12 +8,26 @@ module Dinero
 
     private
 
+    delegate :organization_id, to: :client
+
     def get(url, params: {}, headers: {})
       handle_response client.connection.get(url, params, headers)
     end
 
     def post(url, params: {}, headers: {})
       response = handle_response client.connection.post(url, params, headers)
+      response.body.deep_transform_keys!(&:underscore)
+      response
+    end
+
+    def put(url, params: {}, headers: {})
+      response = handle_response client.connection.put(url, params, headers)
+      response.body.deep_transform_keys!(&:underscore)
+      response
+    end
+
+    def delete(url, params: {}, headers: {})
+      response = handle_response client.connection.delete(url, params, headers)
       response.body.deep_transform_keys!(&:underscore)
       response
     end

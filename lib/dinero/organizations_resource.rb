@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Dinero
   class OrganizationsResource < Resource
     def list(**params)

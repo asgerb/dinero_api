@@ -1,12 +1,12 @@
 module Dinero
   class SalesCreditNotesResource < Resource
     def list(**params)
-      response = get("v1/#{client.organization_id}/sales/creditnotes", params: params)
-      Collection.from_response(response, key: "instances", type: SalesCreditNote)
+      response = get("v1/#{organization_id}/sales/creditnotes", params: params)
+      Collection.from_response(response, type: SalesCreditNote)
     end
 
-    def retrieve(id)
-      response = get("v1/#{client.organization_id}/sales/creditnotes/#{id}")
+    def retrieve(guid)
+      response = get("v1/#{organization_id}/sales/creditnotes/#{guid}")
       SalesCreditNote.from_response(response)
     end
   end

@@ -1,7 +1,7 @@
 require_relative "lib/dinero/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "dinero_ruby"
+  spec.name = "dinero_api"
   spec.version = Dinero::VERSION
   spec.authors = ["asgerb"]
   spec.email = ["a@asgerbehnckejacobsen.dk"]

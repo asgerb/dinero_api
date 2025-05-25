@@ -1,22 +1,22 @@
 module Dinero
   class InvoicesResource < Resource
     def list(**params)
-      response = get("v1/#{client.organization_id}/invoices", params: params)
-      Collection.from_response(response, key: "instances", type: Invoice)
+      response = get("v1/#{organization_id}/invoices", params: params)
+      Collection.from_response(response, type: Invoice)
     end
 
-    def retrieve(id)
-      response = get("v1/#{client.organization_id}/invoices/#{id}")
+    def retrieve(guid)
+      response = get("v1/#{organization_id}/invoices/#{guid}")
       Invoice.from_response(response)
     end
 
-    def retrieve_pdf(id)
-      response = get("v1/#{client.organization_id}/invoices/#{id}", headers: {"Accept" => "application/octet-stream"})
+    def retrieve_pdf(guid)
+      response = get("v1/#{organization_id}/invoices/#{guid}", headers: {"Accept" => "application/octet-stream"})
       response.body
     end
 
     def create(**params)
-      response = post("v1/#{client.organization_id}/invoices", params: params)
+      response = post("v1/#{organization_id}/invoices", params: params)
       response.body
     end
   end
