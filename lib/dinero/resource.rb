@@ -32,9 +32,7 @@ module Dinero
     end
 
     def delete(url, params: {}, headers: {})
-      response = handle_response connection.delete(url, params, headers)
-      response.body.deep_transform_keys!(&:underscore)
-      response
+      handle_response connection.delete(url, params, headers)
     end
 
     def handle_response(response)
