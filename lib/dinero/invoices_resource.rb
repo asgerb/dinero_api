@@ -19,5 +19,15 @@ module Dinero
       response = post("v1/#{organization_id}/invoices", params: params)
       response.body
     end
+
+    def book(guid, **params)
+      response = post("v1/#{organization_id}/invoices/#{guid}/book", params: params)
+      Invoice.from_response(response)
+    end
+
+    def remove(guid)
+      response = delete("v1/#{organization_id}/invoices/#{guid}")
+      response.body
+    end
   end
 end
