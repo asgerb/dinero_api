@@ -20,9 +20,14 @@ module Dinero
       response.body
     end
 
+    def update(guid, **params)
+      response = put("v1.2/#{organization_id}/invoices/#{guid}", params: params)
+      response.body
+    end
+
     def book(guid, **params)
       response = post("v1/#{organization_id}/invoices/#{guid}/book", params: params)
-      Invoice.from_response(response)
+      response.body
     end
 
     def remove(guid)
