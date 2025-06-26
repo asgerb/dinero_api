@@ -42,7 +42,7 @@ module Dinero
 
     def reports = Dinero::ReportsResource.new(self)
 
-    def sms = Dinero::SMSResource.new(self)
+    def sms = Dinero::SmsResource.new(self)
 
     def vat_types = Dinero::VatTypesResource.new(self)
 

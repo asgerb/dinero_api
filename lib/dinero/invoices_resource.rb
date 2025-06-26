@@ -20,7 +20,7 @@ module Dinero
       response.body
     end
 
-    def update(guid, **params)
+    def update(guid, params = {})
       response = put("v1.2/#{organization_id}/invoices/#{guid}", params: params)
       response.body
     end
