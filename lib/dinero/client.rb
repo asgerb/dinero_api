@@ -44,7 +44,7 @@ module Dinero
 
     def sms = Dinero::SMSResource.new(self)
 
-    def vat_types = Dinero::VATTypesResource.new(self)
+    def vat_types = Dinero::VatTypesResource.new(self)
 
     def voucher_templates = Dinero::VoucherTemplatesResource.new(self)
 
